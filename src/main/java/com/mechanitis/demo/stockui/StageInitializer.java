@@ -17,6 +17,7 @@ import java.io.IOException;
  * applicativ di partenza, questa implementazione è eseguita all'arrivo dell'evento lanciato
  * nella classe ChartAplication
  * Questa classe esegue  il disegno degli oggetti nella finestra in basa al contenuto del file di risorsa .fxml
+ * @see {https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/doc-files/introduction_to_fxml.html}
  */
 @Component
 public class StageInitializer implements ApplicationListener<ChartApplication.StageReadyEvent> {
