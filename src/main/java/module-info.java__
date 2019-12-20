@@ -1,0 +1,6 @@
+module stock.ui {
+    requires spring.boot.autoconfigure;
+    requires spring.boot;
+    requires javafx.graphics;
+    requires spring.context;
+}
