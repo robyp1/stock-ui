@@ -12,6 +12,12 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+/**
+ * SpringBoot class scanner trova le classi component come iniettabile e gestibili nel suo contesto
+ * applicativ di partenza, questa implementazione è eseguita all'arrivo dell'evento lanciato
+ * nella classe ChartAplication
+ * Questa classe esegue  il disegno degli oggetti nella finestra in basa al contenuto del file di risorsa .fxml
+ */
 @Component
 public class StageInitializer implements ApplicationListener<ChartApplication.StageReadyEvent> {
     @Value("classpath:/chart.fxml")
