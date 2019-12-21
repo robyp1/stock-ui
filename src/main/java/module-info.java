@@ -9,6 +9,7 @@ module stock.ui {
     requires javafx.controls;
     requires java.sql;
     requires stock.client;
+    requires com.fasterxml.classmate;
 
     //opens ->  needed for reflection calls from spring core
     //and exports -> neeede because springboot use StockUiApplication
