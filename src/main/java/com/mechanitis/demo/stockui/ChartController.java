@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Consumer;
@@ -21,6 +23,7 @@ public class ChartController implements Consumer<StockPrice> {
     public LineChart<String, Double> chart;
     private WebClientStockClient stockClientProxy;
     private ObservableList<XYChart.Data<String, Double>> seriesData = FXCollections.observableArrayList();
+    private static final Logger log = LogManager.getLogger(ChartController.class);
 
 
     public ChartController(WebClientStockClient stockClientProxy) {
@@ -33,6 +36,8 @@ public class ChartController implements Consumer<StockPrice> {
         data.add(new XYChart.Series<>(seriesData));
         chart.setData(data);
         stockClientProxy.pricesFor("SYMBOL").subscribe(this);
+        //log.info(take.blockFirst().getTime());
+
     }
 
     @Override
