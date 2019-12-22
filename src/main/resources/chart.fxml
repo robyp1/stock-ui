@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.mechanitis.demo.stockui.ChartController">
-    <LineChart prefHeight="600" fx:id="chart">
-        <xAxis>
-            <CategoryAxis label="Time"/>
-        </xAxis>
-        <yAxis>
-            <NumberAxis label="Prices"/>
-        </yAxis>
-    </LineChart>
-</VBox>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mechanitis.demo.stockui.ChartController">
+    <top>
+        <HBox>
+            <Label fx:id="titleLbl" text="Realtime Chart times/prices: "/>
+            <Label fx:id="lastPriceLbl" text=" " alignment="CENTER_RIGHT"/>
+        </HBox>
+    </top>
+    <left></left>
+    <center>
+        <LineChart prefHeight="600" fx:id="chart">
+            <xAxis>
+                <CategoryAxis label="Time"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Prices"/>
+            </yAxis>
+        </LineChart>
+    </center>
+    <right></right>
+    <bottom>
+    </bottom>
+</BorderPane>
+
+
