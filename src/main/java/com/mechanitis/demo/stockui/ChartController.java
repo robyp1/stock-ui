@@ -20,7 +20,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.function.Consumer;
 
-import static java.lang.String.*;
+import static java.lang.String.valueOf;
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
@@ -37,17 +37,24 @@ public class ChartController implements Consumer<StockPrice> {
     private static final Logger log = LogManager.getLogger(ChartController.class);
 
 
+    private static final String SYMBOL = "Apple Inc.";
+
     public ChartController(WebClientStockClient stockClientProxy) {
         this.stockClientProxy = stockClientProxy;
     }
 
     @FXML
     public void initialize() {
-        String symbol = "EUR";
-        ObservableList<XYChart.Series<String, Double>> data = observableArrayList();
-        data.add(new Series<>(symbol,seriesData));
-        chart.setData(data);
-        stockClientProxy.pricesFor(symbol).subscribe(this);//handler is method accept in this class
+        try {
+            chart.getXAxis().setLabel("Time"); //label x axis
+            chart.getYAxis().setLabel("Prices"); //label y axis
+            ObservableList<Series<String, Double>> data = observableArrayList();
+            data.add(new Series<>(SYMBOL,seriesData));
+            chart.setData(data);
+            stockClientProxy.pricesFor(SYMBOL).subscribe(this);//handler is method accept in this class
+        } catch (Exception e) {
+            log.error("Error on load JavaFX components: " + e.getMessage(), e);
+        }
         //log.info(take.blockFirst().getTime());
 
     }

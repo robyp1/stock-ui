@@ -4,31 +4,38 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mechanitis.demo.stockui.ChartController">
-    <top>
-        <HBox>
-            <Label fx:id="titleLbl" text="Realtime Chart times/prices: "/>
-            <Label fx:id="lastPriceLbl" text=" " alignment="CENTER_RIGHT"/>
-        </HBox>
-    </top>
-    <left></left>
-    <center>
-        <LineChart prefHeight="600" fx:id="chart">
-            <xAxis>
-                <CategoryAxis label="Time"/>
-            </xAxis>
-            <yAxis>
-                <NumberAxis label="Prices"/>
-            </yAxis>
-        </LineChart>
-    </center>
-    <right></right>
-    <bottom>
-    </bottom>
-</BorderPane>
-
-
+    <children>
+        <VBox fx:id="vbox" layoutX="260.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="32.0" prefWidth="201.0" text="Realtime Chart times/prices:">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="lastPriceLbl">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <LineChart fx:id="chart" prefHeight="600.0" title="Market Prices">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT"/>
+                    </yAxis>
+                </LineChart>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
